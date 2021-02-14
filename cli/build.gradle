@@ -1,4 +1,12 @@
-description='Personal-Architect\'s Command Line Interface sub-proj'
+plugins {
+    id('application')
+}
+
+description = 'Personal-Architect\'s Command Line Interface sub-proj'
 
 dependencies {
+}
+
+application{
+    mainClass = 'bootstrap.CommandLineStarter'
 }

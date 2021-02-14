@@ -1,6 +1,5 @@
 plugins {
-    id 'java'
-    id 'application'
+    id('java')
 }
 
 subprojects {
@@ -29,6 +28,7 @@ project(':domain'){
 project(':service'){
     dependencies {
         api project(':domain')
+        implementation project(':storage')
     }
 }
 
