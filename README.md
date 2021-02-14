@@ -34,4 +34,5 @@ What are types of questions:
 
  - List several KeyWords for special functionalities that your app should have. 
  
-
+## Considerations
+	Let's use reactive streams
