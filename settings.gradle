@@ -2,6 +2,6 @@ rootProject.name = 'personal-architect'
 include 'domain'
 include 'service'
 include 'web'
-include 'cmd'
 include 'cli'
+include 'storage'
 

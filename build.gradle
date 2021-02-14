@@ -1,9 +1,10 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 subprojects {
-    apply plugin: 'java'
+    apply plugin: 'java-library'
 
     description = 'Personal-Architect sub-project: '+name
 
@@ -20,3 +21,27 @@ subprojects {
         useJUnitPlatform()
     }
 }
+
+project(':domain'){
+    dependencies {}
+}
+
+project(':service'){
+    dependencies {
+        api project(':domain')
+    }
+}
+
+project(':cli'){
+    dependencies {
+        api project(':service')
+    }
+}
+
+project(":web"){
+    dependencies {
+        api project(':service')
+    }
+}
+
+project(':storage'){}
