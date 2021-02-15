@@ -1,4 +1,4 @@
-package CliWriter;
+package cli.manager.CliWriter;
 
 import java.io.OutputStream;
 import java.io.PrintWriter;

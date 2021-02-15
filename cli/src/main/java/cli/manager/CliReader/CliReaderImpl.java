@@ -1,4 +1,4 @@
-package CliReader;
+package cli.manager.CliReader;
 
 import java.io.InputStream;
 import java.util.Scanner;

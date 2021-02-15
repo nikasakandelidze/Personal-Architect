@@ -1,10 +1,10 @@
-package bootstrap;
+package cli.manager;
 
-import CliReader.CliReader;
-import CliWriter.CliWriter;
+import cli.manager.CliReader.CliReader;
+import cli.manager.CliWriter.CliWriter;
 
-import CliWriter.CliWriterImpl;
-import CliReader.CliReaderImpl;
+import cli.manager.CliWriter.CliWriterImpl;
+import cli.manager.CliReader.CliReaderImpl;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
