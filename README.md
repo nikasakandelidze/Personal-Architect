@@ -36,3 +36,4 @@ What are types of questions:
  
 ## Considerations
 	Let's use reactive streams
+    Let's use Spring Shell project

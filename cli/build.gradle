@@ -5,7 +5,9 @@ plugins {
 description = 'Personal-Architect\'s Command Line Interface sub-proj'
 
 dependencies {
+    implementation('org.springframework.shell:spring-shell-core-test-support:2.0.0.RELEASE')
 }
+
 
 application{
     mainClass = 'bootstrap.CommandLineStarter'
