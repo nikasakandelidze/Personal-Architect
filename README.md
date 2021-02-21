@@ -1,5 +1,8 @@
 Project Name:  Personal Architect
 
+##	See scripts/mvp.sh for minimalistic mvp of the project
+
+
 MVP Language Support: Java
 
 MVP Language infrastructure: Spring boot
