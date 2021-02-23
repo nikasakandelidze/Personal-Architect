@@ -58,8 +58,35 @@ cd ..
 ######################################
 
 ######## Services package setup #########
-
 mkdir "Services"
+ 
+cd "Services"
+
+touch "Create${domain_obj_1}Service.java"
+touch "Read${domain_obj_1}Service.java"
+touch "Update${domain_obj_1}Service.java"
+touch "Delete${domain_obj_1}Service.java"
+
+echo "public interface Create${domain_obj_1}Service{}" > "Create${domain_obj_1}Service.java"
+echo "public interface Read${domain_obj_1}Service{}" > "Read${domain_obj_1}Service.java"
+echo "public interface Update${domain_obj_1}Service{}" > "Update${domain_obj_1}Service.java"
+echo "public interface Delete${domain_obj_1}Service{}" > "Delete${domain_obj_1}Service.java"
+
+touch "Create${domain_obj_1}ServiceImpl.java"
+touch "Read${domain_obj_1}ServiceImpl.java"
+touch "Update${domain_obj_1}ServiceImpl.java"
+touch "Delete${domain_obj_1}ServiceImpl.java"
+
+echo "public class Create${domain_obj_1}ServiceImpl implements Create${domain_obj_1}Service" > "Create${domain_obj_1}ServiceImpl.java"
+echo "public class Read${domain_obj_1}ServiceImpl implements Read${domain_obj_1}Service" > "Read${domain_obj_1}ServiceImpl.java"
+echo "public class Delete${domain_obj_1}ServiceImpl implements Delete${domain_obj_1}Service" > "Delete${domain_obj_1}ServiceImpl.java"
+echo "public class Update${domain_obj_1}ServiceImpl implements Update${domain_obj_1}Service" > "Update${domain_obj_1}ServiceImpl.java"
+echo "public interface Read${domain_obj_1}Service{}" > "Read${domain_obj_1}Service.java"
+echo "public interface Update${domain_obj_1}Service{}" > "Update${domain_obj_1}Service.java"
+echo "public interface Delete${domain_obj_1}Service{}" > "Delete${domain_obj_1}Service.java"
+
+
+#######################################
 
 mkdir "Storage"
 
