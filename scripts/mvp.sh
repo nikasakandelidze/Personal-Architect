@@ -6,14 +6,22 @@
 ########### Read data from user of the program
 echo "Welcome to Generic CRUD project generator.\n"
 
+echo "Please choose number for according service:\n (1) Generate project structure with user's input data\n (2) Generate project structure without providing any info."
+
+read service_type
+
+if [service_type = "2"]
+then
+	echo "This feature is in development."
+else
+
 echo "Please enter your project's name: "
 
 read proj_name
 
-echo "Please enter your domain objects' names(seperated by spaces, maximum of 5 DO-s)"
+echo "Please enter your domain object name(seperated by spaces, maximum of 1 DO-s)"
 
-read domain_obj_1  domain_obj_2 # Restricted to only 2 domain objects at the moment
-
+read domain_obj_1  # Restricted to only 1 domain objects at the moment
 
 ########## Generate folder structure for the project
 
@@ -57,8 +65,8 @@ echo "public class Delete${domain_obj_1}Requester{}" > "Delete${domain_obj_1}Req
 cd ..
 ######################################
 
-######## Services package setup #########
-mkdir "Services"
+
+######## Services package setup #########mkdir "Services"
  
 cd "Services"
 
@@ -94,8 +102,4 @@ mkdir "BusinessLogic"
 
 mkdir "entities"
 
-
-
-
-
-
+fi
