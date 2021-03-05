@@ -5,7 +5,7 @@ plugins {
 subprojects {
     apply plugin: 'java-library'
 
-    description = 'Personal-Architect sub-project: '+name
+    description = 'co-op\'s sub-project: '+name
 
     repositories {
         mavenCentral()
