@@ -1,5 +1,7 @@
 package model.projects;
 
+import model.projects.member.ProjectMember;
+
 import java.util.ArrayList;
 import java.util.List;
 

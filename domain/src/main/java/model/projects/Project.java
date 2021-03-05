@@ -1,5 +1,7 @@
 package model.projects;
 
+import model.projects.member.ProjectMember;
+
 public class Project {
     private final String projectId;
     private String projectType;
