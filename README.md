@@ -13,10 +13,10 @@ Domain details:
   At the moment idea is fully concentrated on Software Projects, Computer Science learning space, but can be enhanced.
 
 Technical details:
-  Frontend: Javascript (framework: React)
-  Backend: Java (framework: Spring, Spring-boot)
-  
+  Frontend/Client: Javascript (framework: React)
+  Backend/Service: Java (framework: Spring, Spring-boot)
+
+  Backend <--- Client, happens using REST endpoints.
   
 ## Considerations
 	Let's use reactive streams
-    Let's use Spring Shell project

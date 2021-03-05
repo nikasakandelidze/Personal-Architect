@@ -4,6 +4,7 @@ import model.projects.Project;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ProjectMember {
     private String memberId;
@@ -55,5 +56,22 @@ public class ProjectMember {
 
     public void setProjectsInterestedIn(List<Project> projectsInterestedIn) {
         this.projectsInterestedIn = projectsInterestedIn;
+    }
+
+    public void addProjectToInterestedList(Project project) {
+        this.projectsInterestedIn.add(project);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProjectMember that = (ProjectMember) o;
+        return Objects.equals(memberId, that.memberId) && Objects.equals(email, that.email) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(projectsInterestedIn, that.projectsInterestedIn);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(memberId, email, firstName, lastName, projectsInterestedIn);
     }
 }
