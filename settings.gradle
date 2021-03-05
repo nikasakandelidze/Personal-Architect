@@ -1,4 +1,4 @@
-rootProject.name = 'personal-architect'
+rootProject.name = 'co-op'
 include 'domain'
 include 'service'
 include 'web'

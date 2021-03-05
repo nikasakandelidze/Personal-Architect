@@ -1,16 +1,10 @@
 plugins {
-//    id 'application'
-    id 'org.springframework.boot' version '2.4.2'
+    id 'application'
 }
 
-description = 'Personal-Architect\'s Command Line Interface sub-proj'
-
-bootJar{
-    mainClass='cli.CommandLineStarter'
-}
+description = 'co-op\'s Command Line Interface sub-proj'
 
 dependencies {
-    implementation('org.springframework.shell:spring-shell-starter:2.0.1.RELEASE')
 }
 
 
