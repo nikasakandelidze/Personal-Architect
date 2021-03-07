@@ -1,4 +1,13 @@
+
+plugins{
+    id 'org.springframework.boot' version '2.4.3'
+}
+
 description='co-op\'s Services sub-proj'
+
+bootJar {
+    enabled = false
+}
 
 dependencies {
 }
