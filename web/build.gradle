@@ -1,4 +1,14 @@
+plugins{
+    id 'org.springframework.boot' version '2.4.3'
+}
+
 description='co-op\'s Web/REST sub-proj'
 
+bootJar{
+    mainClass='web.WebApplication'
+}
+
 dependencies {
+    implementation 'org.springframework.boot:spring-boot-starters:2.2.13.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket:2.4.3'
 }

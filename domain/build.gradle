@@ -1,3 +1,7 @@
+plugins {
+    id 'java-library'
+}
+
 description='co-op\'s Domain sub-proj'
 
 dependencies {
