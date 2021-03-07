@@ -1,12 +1,10 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.3'
+    id 'java-library'
 }
 
 description = 'co-op\'s Services sub-proj'
 
-bootJar {
-    enabled = false
-}
-
 dependencies {
+    // https://mvnrepository.com/artifact/org.springframework/spring-context
+    implementation group: 'org.springframework', name: 'spring-context', version: '5.2.6.RELEASE'
 }
