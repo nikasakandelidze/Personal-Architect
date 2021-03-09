@@ -19,4 +19,5 @@ Technical details:
   Backend <--- Client, happens using REST endpoints.
   
 ## Considerations
-	Let's use reactive streams
+	- use reactive streams for back-end
+	- use redux on front-end for state management
