@@ -1,6 +1,7 @@
-package ProjectsService;
+package services.projectsServices.projcetsFeedFetcherService;
 
-import ProjectsService.helpers.ProjectsFilterServiceData;
+import services.exceptions.ProjectNotFoundException;
+import services.helpers.ProjectsFilterServiceData;
 import model.projects.Project;
 import model.projects.ProjectsFeed;
 import org.springframework.stereotype.Service;
@@ -8,19 +9,18 @@ import useCases.project.ProjectsFeedUseCase;
 import useCases.project.helper.Projectsfilter.ConcreteProjectFilterer;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class ProjectFeedServiceImpl implements ProjectFeedService{
+public class ProjectFeedFetcherServiceImpl implements ProjectFeedFetcherService {
     private ProjectsFeedUseCase projectsFeedUseCase;
 
-    public ProjectFeedServiceImpl(){
+    public ProjectFeedFetcherServiceImpl(){
         this.projectsFeedUseCase = new ProjectsFeedUseCase(new ProjectsFeed(), new ConcreteProjectFilterer());
     }
 
     @Override
-    public Optional<Project> getProjectWithId(String projectId) {
-        return projectsFeedUseCase.getProjectWithId(projectId);
+    public Project getProjectWithId(String projectId) {
+        return projectsFeedUseCase.getProjectWithId(projectId).orElseThrow(()->new ProjectNotFoundException(String.format("Couldn't find project with projectId: %s", projectId)));
     }
 
     @Override
