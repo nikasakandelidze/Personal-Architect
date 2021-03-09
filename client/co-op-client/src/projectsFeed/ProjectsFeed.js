@@ -1,11 +1,14 @@
 
 import data from './projects.json'
-import Project from "../Project/Project";
+import ProjectProxy from "../Project/ProjectProxy";
+
+//import css
+import './ProjectsFeed.css'
 
 function ProjectsFeed(){
     return (
-        <div>
-            {data.map(element => <Project name={element.name} link={element.link}/>)}
+        <div className='projects_feed_container'>
+            {data.map(element => <ProjectProxy name={element.name} link={element.link} description={element.description} />)}
         </div>
     );
 }

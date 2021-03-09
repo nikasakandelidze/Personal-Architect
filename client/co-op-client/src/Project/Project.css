@@ -1,3 +1,6 @@
-.project_container{
+.project_proxy_container{
     background-color: lightblue;
+    width: 50%;
+    margin: 1%;
+    border: 1px solid black;
 }
