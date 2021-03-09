@@ -1,4 +1,4 @@
-import './Project.css'
+import './ProjectProxy.css'
 
 function ProjectProxy(props){
     return(
