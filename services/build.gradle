@@ -1,12 +1,16 @@
 plugins {
-    id('java')
+    id 'java'
 }
+
+description = 'co-op root project.'
 
 tasks.create('listProjects'){
     doLast{
         println(subprojects.forEach { println(it.name) })
     }
 }
+
+java.sourceCompatibility = JavaVersion.VERSION_14
 
 subprojects {
     apply plugin: 'java-library'

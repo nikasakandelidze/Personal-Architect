@@ -16,7 +16,7 @@ public class MappingUtils {
 
     public static Project projectFromProjectDto(ProjectDto projectDto){
         final String id = projectDto.getProjectId() == null ? UUID.randomUUID().toString() : projectDto.getProjectId();
-        var project = new Project(id);
+        Project project = new Project(id);
         project.setProjectGroup(projectDto.getProjectGroup());
         project.setProjectType(projectDto.getProjectType());
         project.setProjectCategory(projectDto.getProjectCategory());
