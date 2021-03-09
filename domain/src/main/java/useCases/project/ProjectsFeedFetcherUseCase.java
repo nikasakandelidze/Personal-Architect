@@ -8,17 +8,13 @@ import useCases.project.helper.Projectsfilter.ProjectFiltererData;
 import java.util.List;
 import java.util.Optional;
 
-public class ProjectsFeedUseCase {
+public class ProjectsFeedFetcherUseCase {
     private final ProjectsFeed projectsFeed;
     private final ProjectFilterer projectFilterer;
 
-    public ProjectsFeedUseCase(ProjectsFeed projectsFeed, ProjectFilterer filterer) {
+    public ProjectsFeedFetcherUseCase(ProjectsFeed projectsFeed, ProjectFilterer filterer) {
         this.projectFilterer = filterer;
         this.projectsFeed = projectsFeed;
-    }
-
-    public void addNewProject(Project project) {
-        projectsFeed.addNewProject(project);
     }
 
     public Optional<Project> getProjectWithId(String projectId) {

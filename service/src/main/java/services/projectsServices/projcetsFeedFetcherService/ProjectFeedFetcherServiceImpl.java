@@ -1,35 +1,42 @@
 package services.projectsServices.projcetsFeedFetcherService;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import services.exceptions.CouldntGetProjectWithIdException;
 import services.exceptions.ProjectNotFoundException;
 import services.helpers.ProjectsFilterServiceData;
 import model.projects.Project;
 import model.projects.ProjectsFeed;
 import org.springframework.stereotype.Service;
-import useCases.project.ProjectsFeedUseCase;
+import useCases.project.ProjectsFeedFetcherUseCase;
 import useCases.project.helper.Projectsfilter.ConcreteProjectFilterer;
 
 import java.util.List;
 
 @Service
 public class ProjectFeedFetcherServiceImpl implements ProjectFeedFetcherService {
-    private ProjectsFeedUseCase projectsFeedUseCase;
+    private final ProjectsFeedFetcherUseCase projectsFeedFetcherUseCase;
 
-    public ProjectFeedFetcherServiceImpl(){
-        this.projectsFeedUseCase = new ProjectsFeedUseCase(new ProjectsFeed(), new ConcreteProjectFilterer());
+    @Autowired
+    public ProjectFeedFetcherServiceImpl(ProjectsFeedFetcherUseCase projectsFeedFetcherUseCase){
+        this.projectsFeedFetcherUseCase = projectsFeedFetcherUseCase;
     }
 
     @Override
     public Project getProjectWithId(String projectId) {
-        return projectsFeedUseCase.getProjectWithId(projectId).orElseThrow(()->new ProjectNotFoundException(String.format("Couldn't find project with projectId: %s", projectId)));
+        try{
+            return projectsFeedFetcherUseCase.getProjectWithId(projectId).orElseThrow(()->new ProjectNotFoundException(String.format("Couldn't find project with projectId: %s", projectId)));
+        }catch (Exception e){
+            throw new CouldntGetProjectWithIdException(e.getMessage());
+        }
     }
 
     @Override
     public List<Project> getAllProjects() {
-        return projectsFeedUseCase.getAllProjects();
+        return projectsFeedFetcherUseCase.getAllProjects();
     }
 
     @Override
     public List<Project> filterProjects(ProjectsFilterServiceData projectFiltererData) {
-        return projectsFeedUseCase.filterProjects(ProjectsFilterServiceData.from(projectFiltererData));
+        return projectsFeedFetcherUseCase.filterProjects(ProjectsFilterServiceData.from(projectFiltererData));
     }
 }

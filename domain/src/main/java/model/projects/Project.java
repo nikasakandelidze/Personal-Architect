@@ -2,6 +2,8 @@ package model.projects;
 
 import model.projects.member.ProjectMember;
 
+import java.util.Objects;
+
 public class Project {
     private final String projectId;
     private String projectType;
@@ -65,5 +67,31 @@ public class Project {
 
     public void setProjectCategory(String projectCategory) {
         this.projectCategory = projectCategory;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Project project = (Project) o;
+        return Objects.equals(projectType, project.projectType) && Objects.equals(description, project.description) && Objects.equals(linkToResource, project.linkToResource) && Objects.equals(author, project.author) && Objects.equals(projectGroup, project.projectGroup) && Objects.equals(projectCategory, project.projectCategory);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(projectType, description, linkToResource, author, projectGroup, projectCategory);
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "projectId='" + projectId + '\'' +
+                ", projectType='" + projectType + '\'' +
+                ", description='" + description + '\'' +
+                ", linkToResource='" + linkToResource + '\'' +
+                ", author=" + author +
+                ", projectGroup=" + projectGroup +
+                ", projectCategory='" + projectCategory + '\'' +
+                '}';
     }
 }
