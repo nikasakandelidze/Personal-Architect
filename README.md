@@ -1,10 +1,11 @@
-Project Name:  co-op
+Project Name:  co-op 
 
 ## The problem:
     Personal projects are one of the best ways to enhance your knowledge and to become a better professional at something, 
     but there is a lack of platforms that  help motivated people to connect, share each-others projects,  work and learn together. 
 
 ## Description of the idea:
+	Social network for Co-Operating with projects or studying.
 	Platform where people can "co-work" or "co-learn" with each other. Share each other's projects and look for people who might be interested to spend their spare time working on some interesting ideas.
     
 ## Details
