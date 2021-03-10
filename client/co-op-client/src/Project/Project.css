@@ -1,3 +1,6 @@
 .project{
     background-color: #61dafb;
+    width: 200px;
+    height: 200px;
+    position: absolute;
 }
