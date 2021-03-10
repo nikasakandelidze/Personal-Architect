@@ -1,6 +1,7 @@
 package model.projects;
 
-import model.projects.member.ProjectMember;
+import model.members.ProjectMember;
+import model.projectGroup.ProjectGroup;
 
 import java.util.Objects;
 

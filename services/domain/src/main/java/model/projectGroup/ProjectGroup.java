@@ -1,23 +1,27 @@
-package model.projects;
+package model.projectGroup;
 
-import model.projects.member.ProjectMember;
+import model.members.ProjectMember;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class ProjectGroup {
+    private final String projectId;
     private final String groupName;
     private final List<ProjectMember> members;
 
-    public ProjectGroup(List<ProjectMember> members, String groupName) {
+    public ProjectGroup(List<ProjectMember> members, String groupName, String projectId) {
         this.groupName = groupName;
         this.members = members;
+        this.projectId = projectId;
     }
 
     public ProjectGroup(String groupName) {
         this.members = new ArrayList<>();
         this.groupName = groupName;
+        this.projectId = UUID.randomUUID().toString();
     }
 
     public List<ProjectMember> getMembers() {

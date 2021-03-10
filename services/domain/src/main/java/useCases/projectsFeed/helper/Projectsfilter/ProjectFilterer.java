@@ -1,4 +1,4 @@
-package useCases.project.helper.Projectsfilter;
+package useCases.projectsFeed.helper.Projectsfilter;
 
 import model.projects.Project;
 

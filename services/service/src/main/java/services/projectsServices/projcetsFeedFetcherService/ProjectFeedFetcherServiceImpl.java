@@ -5,10 +5,8 @@ import services.exceptions.CouldntGetProjectWithIdException;
 import services.exceptions.ProjectNotFoundException;
 import services.helpers.ProjectsFilterServiceData;
 import model.projects.Project;
-import model.projects.ProjectsFeed;
 import org.springframework.stereotype.Service;
-import useCases.project.ProjectsFeedFetcherUseCase;
-import useCases.project.helper.Projectsfilter.ConcreteProjectFilterer;
+import useCases.projectsFeed.ProjectsFeedFetcherUseCase;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package useCases.project.helper.Projectsfilter;
+package useCases.projectsFeed.helper.Projectsfilter;
 
 import model.projects.Project;
-import model.projects.ProjectGroup;
-import model.projects.member.ProjectMember;
+import model.projectGroup.ProjectGroup;
+import model.members.ProjectMember;
 
 import java.util.List;
 import java.util.stream.Collectors;

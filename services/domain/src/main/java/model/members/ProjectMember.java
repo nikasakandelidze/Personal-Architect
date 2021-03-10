@@ -1,4 +1,4 @@
-package model.projects.member;
+package model.members;
 
 import model.projects.Project;
 
@@ -67,7 +67,7 @@ public class ProjectMember {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProjectMember that = (ProjectMember) o;
-        return Objects.equals(memberId, that.memberId) && Objects.equals(email, that.email) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(projectsInterestedIn, that.projectsInterestedIn);
+        return Objects.equals(email, that.email) && Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && Objects.equals(projectsInterestedIn, that.projectsInterestedIn);
     }
 
     @Override

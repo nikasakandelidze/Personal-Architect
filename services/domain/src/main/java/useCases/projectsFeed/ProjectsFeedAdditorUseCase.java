@@ -1,4 +1,4 @@
-package useCases.project;
+package useCases.projectsFeed;
 
 import model.projects.Project;
 import model.projects.ProjectsFeed;

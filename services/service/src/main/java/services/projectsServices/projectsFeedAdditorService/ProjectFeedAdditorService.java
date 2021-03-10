@@ -1,4 +1,4 @@
-package services.projectsFeedAdditorService;
+package services.projectsServices.projectsFeedAdditorService;
 
 import model.projects.Project;
 

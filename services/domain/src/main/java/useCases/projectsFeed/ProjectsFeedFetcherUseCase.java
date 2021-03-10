@@ -1,9 +1,9 @@
-package useCases.project;
+package useCases.projectsFeed;
 
 import model.projects.Project;
 import model.projects.ProjectsFeed;
-import useCases.project.helper.Projectsfilter.ProjectFilterer;
-import useCases.project.helper.Projectsfilter.ProjectFiltererData;
+import useCases.projectsFeed.helper.Projectsfilter.ProjectFilterer;
+import useCases.projectsFeed.helper.Projectsfilter.ProjectFiltererData;
 
 import java.util.List;
 import java.util.Optional;

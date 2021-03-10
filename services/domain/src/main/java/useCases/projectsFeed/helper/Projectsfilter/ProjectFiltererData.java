@@ -1,7 +1,7 @@
-package useCases.project.helper.Projectsfilter;
+package useCases.projectsFeed.helper.Projectsfilter;
 
-import model.projects.ProjectGroup;
-import model.projects.member.ProjectMember;
+import model.projectGroup.ProjectGroup;
+import model.members.ProjectMember;
 
 public class ProjectFiltererData {
     private final String name;

@@ -1,8 +1,8 @@
 package services.helpers;
 
-import model.projects.ProjectGroup;
-import model.projects.member.ProjectMember;
-import useCases.project.helper.Projectsfilter.ProjectFiltererData;
+import model.projectGroup.ProjectGroup;
+import model.members.ProjectMember;
+import useCases.projectsFeed.helper.Projectsfilter.ProjectFiltererData;
 
 public class ProjectsFilterServiceData {
     private final String name;
