@@ -1,17 +1,25 @@
 .half_project_card_container{
-    background-color: lightcyan;
+    background-color: rgba(75,105,184,0.97);
+    color: white;
     width: 50%;
     height: 150px;
     margin: 1%;
-    border: 1px solid black;
     overflow-y: hidden;
+    transition: ease-in-out 0.2s;
 }
 
 .full_project_card_container{
     background-color: white;
+    color: rgba(75,105,184,0.97);
     width: 50%;
     height: 400px;
     margin: 1%;
     border: 1px solid black;
     overflow-y: hidden;
+    transition: ease-in-out 0.2s;
+}
+
+.half_project_card_container:hover{
+    cursor: pointer;
+    transform: scale(1.1);
 }
