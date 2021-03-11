@@ -5,6 +5,7 @@ import model.projects.Project;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 public class ProjectMember {
     private String memberId;
@@ -15,6 +16,11 @@ public class ProjectMember {
 
     public ProjectMember(String memberId) {
         this.memberId = memberId;
+        projectsInterestedIn = new ArrayList<>();
+    }
+
+    public ProjectMember(){
+        this.memberId= UUID.randomUUID().toString();
         projectsInterestedIn = new ArrayList<>();
     }
 
@@ -44,10 +50,6 @@ public class ProjectMember {
 
     public String getMemberId() {
         return memberId;
-    }
-
-    public void setMemberId(String memberId) {
-        this.memberId = memberId;
     }
 
     public List<Project> getProjectsInterestedIn() {

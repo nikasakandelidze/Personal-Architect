@@ -1,0 +1,17 @@
+.half_project_card_container{
+    background-color: lightcyan;
+    width: 50%;
+    height: 150px;
+    margin: 1%;
+    border: 1px solid black;
+    overflow-y: hidden;
+}
+
+.full_project_card_container{
+    background-color: white;
+    width: 50%;
+    height: 400px;
+    margin: 1%;
+    border: 1px solid black;
+    overflow-y: hidden;
+}
