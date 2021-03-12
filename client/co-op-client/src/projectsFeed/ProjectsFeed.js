@@ -4,7 +4,6 @@ import ProjectCard from "../Project/ProjectCard";
 
 //import css
 import './ProjectsFeed.css'
-import Filter from "../Filter/Filter";
 
 function ProjectsFeed(){
 

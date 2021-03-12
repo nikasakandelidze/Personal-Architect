@@ -1,5 +1,17 @@
-.groups_container{
-    background-color: lightcyan;
+#popular_main_container{
+    margin-left: 1%;
+    margin-top: -4%;
+}
+
+.popular_container{
+    background-color: rgba(0,17,34,0.97);
     height: 100%;
     width: 300px;
+
+}
+
+#popular_title_container{
+    font-size: xxx-large;
+    color: white;
+
 }

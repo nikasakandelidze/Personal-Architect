@@ -3,8 +3,14 @@ import './Popular.css'
 
 function Popular(){
     return (
-        <div>
-            <div className='groups_container'>popular</div>
+        <div id='popular_main_container'>
+            <div className='popular_container'>
+                <div id='popular_title_container'>
+                    <h3>
+                        Popular
+                    </h3>
+                </div>
+            </div>
         </div>
     );
 }

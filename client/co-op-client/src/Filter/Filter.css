@@ -1,5 +1,11 @@
 .filter_container{
-    background-color: yellow;
+    background-color:  rgba(0,17,34,0.97);
+    color: white;
     height: 100%;
     width: 300px;
+}
+
+#filter_title_container{
+    font-size: xxx-large;
+    height: 20%;
 }
