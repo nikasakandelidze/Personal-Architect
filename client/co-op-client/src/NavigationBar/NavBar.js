@@ -4,13 +4,13 @@ function Navbar(){
     return(
         <div className='navbar_container'>
             <div className='navbar_element_container'>
-                First
+                Projects
             </div>
             <div className='navbar_element_container'>
-                Second
+                Groups
             </div>
             <div className='navbar_element_container'>
-                Third
+                Zoro
             </div>
         </div>
     );

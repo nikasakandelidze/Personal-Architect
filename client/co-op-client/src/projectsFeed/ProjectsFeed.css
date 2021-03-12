@@ -1,9 +1,14 @@
 .projects_feed_container{
     background-color: rgba(0,17,34,0.97);
-    width: 100%;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-content: center;
+}
+
+#projects_feed_title{
+    color: white;
+    font-size: xxx-large;
 }

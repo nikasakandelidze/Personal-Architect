@@ -1,14 +1,21 @@
 .navbar_container{
-    background-color: aliceblue;
+    background-color: rgba(0,17,34,0.97);
     width: 100%;
-    height: 30px;
+    height: 40px;
     display: flex;
     flex-direction: row;
 }
 
 .navbar_element_container{
+    padding: 1%;
+    font-size: xx-large;
     height: 100%;
-    width: 33%;
+    width: 33.3%;
     background-color: lightsteelblue;
     border: 1px solid black;
+    transition: ease-in-out 0.2s;
+}
+
+.navbar_element_container:hover{
+    background-color: slategrey;
 }

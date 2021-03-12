@@ -7,9 +7,10 @@
   pointer-events: none;
 }
 
-.body_container{
+#body_container{
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 @media (prefers-reduced-motion: no-preference) {

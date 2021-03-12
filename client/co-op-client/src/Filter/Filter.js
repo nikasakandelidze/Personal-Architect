@@ -1,8 +1,8 @@
-
+import './Filter.css'
 
 function Filter(){
     return(
-        <div className='filter_container'>asd</div>
+        <div className='filter_container'>Filter</div>
     );
 }
 
