@@ -1,10 +1,16 @@
 package storage.entity;
 
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class ProjectEntity {
-    private final String projectId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String projectId;
     private String projectType;
     private String description;
     private String linkToResource;

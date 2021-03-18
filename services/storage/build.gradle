@@ -1,5 +1,8 @@
 description='co-op\'s Storage sub-proj'
 
 dependencies {
-    implementation 'org.hibernate:hibernate-core:5.4.29.Final'
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.1.4'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '2.4.1'
 }
