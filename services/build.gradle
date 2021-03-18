@@ -38,7 +38,7 @@ project(':domain'){
 project(':service'){
     dependencies {
         api project(':domain')
-        api project(':storage')
+        implementation project(':storage')
     }
 }
 
