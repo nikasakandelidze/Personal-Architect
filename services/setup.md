@@ -5,7 +5,7 @@
 
 ## Modules
 	Modules: domain - domain models, usecases, basic business-logic of the app.
-	         service - services, business cases  wrapped around the "domain" module.
+	         service - service, business cases  wrapped around the "domain" module.
 		 web - outer most, web layer, deals with http requests and talking with client.
 		 storage - storage, takes care of persistence of the application.
 		 cli - alternative front-end to web Client/JS, using command line interface
