@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
+@Import({storage.projectsStorage.repositories.ProjectRepository.class})
 public class ProjectsFetcherDao implements ProjectsFetcherStorage {
     private final ProjectRepository projectRepository;
 
