@@ -2,7 +2,7 @@ package web.utils;
 
 import model.members.ProjectMember;
 import model.projectGroup.ProjectGroup;
-import model.projects.Project;
+import model.project.Project;
 import web.dto.ProjectDto;
 import web.dto.ProjectGroupDto;
 import web.dto.ProjectMemberDto;

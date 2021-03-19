@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import services.projectsServices.projectGroupFetcherService.ProjectGroupFetcherService;
+import service.projectsServices.projectGroupFetcherService.ProjectGroupFetcherService;
 import web.dto.ProjectGroupDto;
 import web.responses.ResponseProjectGroups;
 import web.utils.MappingUtils;

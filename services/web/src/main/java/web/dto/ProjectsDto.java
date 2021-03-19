@@ -1,6 +1,6 @@
 package web.dto;
 
-import model.projects.Project;
+import model.project.Project;
 import web.utils.MappingUtils;
 
 import java.util.List;

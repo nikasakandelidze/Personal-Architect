@@ -1,9 +1,9 @@
-package services.projectsServices.projectsFeedAdditorService;
+package service.projectsServices.projectsFeedAdditorService;
 
-import model.projects.Project;
+import model.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import services.exceptions.CouldntAddProjectException;
+import service.exceptions.CouldntAddProjectException;
 import useCases.projectsFeed.ProjectsFeedAdditorUseCase;
 
 @Service

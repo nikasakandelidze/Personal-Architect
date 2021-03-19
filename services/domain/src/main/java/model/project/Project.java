@@ -1,4 +1,4 @@
-package model.projects;
+package model.project;
 
 import model.members.ProjectMember;
 import model.projectGroup.ProjectGroup;

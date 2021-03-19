@@ -28,19 +28,20 @@ public class ProjectgroupEntity {
         this.projectId = UUID.randomUUID().toString();
     }
 
-    public List<ProjectMemberEntity> getMembers() {
-        return members;
+    public String getProjectId() {
+        return projectId;
     }
 
-    public void addNewMember(ProjectMemberEntity projectMember){
-        members.add(projectMember);
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
     }
 
     public String getGroupName() {
         return groupName;
     }
 
-    public String getProjectId() {
-        return projectId;
+    public List<ProjectMemberEntity> getMembers() {
+        return members;
     }
+
 }

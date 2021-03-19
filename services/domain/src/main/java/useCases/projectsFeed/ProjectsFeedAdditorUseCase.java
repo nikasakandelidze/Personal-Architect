@@ -1,7 +1,7 @@
 package useCases.projectsFeed;
 
-import model.projects.Project;
-import model.projects.ProjectsFeed;
+import model.project.Project;
+import model.projectsFeed.ProjectsFeed;
 
 public class ProjectsFeedAdditorUseCase {
     private final ProjectsFeed projectsFeed;

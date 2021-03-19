@@ -1,6 +1,6 @@
 package useCases.projectsFeed.helper.Projectsfilter;
 
-import model.projects.Project;
+import model.project.Project;
 
 import java.util.List;
 

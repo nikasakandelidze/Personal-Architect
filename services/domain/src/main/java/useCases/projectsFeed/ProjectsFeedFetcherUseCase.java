@@ -1,7 +1,7 @@
 package useCases.projectsFeed;
 
-import model.projects.Project;
-import model.projects.ProjectsFeed;
+import model.project.Project;
+import model.projectsFeed.ProjectsFeed;
 import useCases.projectsFeed.helper.Projectsfilter.ProjectFilterer;
 import useCases.projectsFeed.helper.Projectsfilter.ProjectFiltererData;
 
@@ -26,6 +26,6 @@ public class ProjectsFeedFetcherUseCase {
     }
 
     public List<Project> filterProjects(ProjectFiltererData projectFiltererData){
-            return projectFilterer.filter(projectsFeed.getProjects(), projectFiltererData);
+            return projectFilterer.filter(projectsFeed.getAllProjects(), projectFiltererData);
     }
 }

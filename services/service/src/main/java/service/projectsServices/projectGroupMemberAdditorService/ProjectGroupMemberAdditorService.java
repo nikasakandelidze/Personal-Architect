@@ -1,4 +1,4 @@
-package services.projectsServices.projectGroupMemberAdditorService;
+package service.projectsServices.projectGroupMemberAdditorService;
 
 import model.members.ProjectMember;
 

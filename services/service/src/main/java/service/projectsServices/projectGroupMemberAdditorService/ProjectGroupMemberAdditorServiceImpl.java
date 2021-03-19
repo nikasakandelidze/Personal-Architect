@@ -1,9 +1,9 @@
-package services.projectsServices.projectGroupMemberAdditorService;
+package service.projectsServices.projectGroupMemberAdditorService;
 
 import model.members.ProjectMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import services.exceptions.ProjectNotFoundException;
+import service.exceptions.ProjectNotFoundException;
 import useCases.projectGroups.ProjectGroupMemberAdditorUseCase;
 
 @Service

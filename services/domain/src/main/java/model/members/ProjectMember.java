@@ -1,6 +1,6 @@
 package model.members;
 
-import model.projects.Project;
+import model.project.Project;
 
 import java.util.ArrayList;
 import java.util.List;

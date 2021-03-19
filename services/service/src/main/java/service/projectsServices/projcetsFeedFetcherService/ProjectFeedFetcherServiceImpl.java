@@ -1,10 +1,10 @@
-package services.projectsServices.projcetsFeedFetcherService;
+package service.projectsServices.projcetsFeedFetcherService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import services.exceptions.CouldntGetProjectWithIdException;
-import services.exceptions.ProjectNotFoundException;
-import services.helpers.ProjectsFilterServiceData;
-import model.projects.Project;
+import service.exceptions.CouldntGetProjectWithIdException;
+import service.exceptions.ProjectNotFoundException;
+import service.helpers.ProjectsFilterServiceData;
+import model.project.Project;
 import org.springframework.stereotype.Service;
 import useCases.projectsFeed.ProjectsFeedFetcherUseCase;
 

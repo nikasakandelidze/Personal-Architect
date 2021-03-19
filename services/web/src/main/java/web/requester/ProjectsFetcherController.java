@@ -1,8 +1,8 @@
 package web.requester;
 
 
-import services.projectsServices.projcetsFeedFetcherService.ProjectFeedFetcherService;
-import model.projects.Project;
+import service.projectsServices.projcetsFeedFetcherService.ProjectFeedFetcherService;
+import model.project.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,7 +1,7 @@
-package services.projectsServices.projcetsFeedFetcherService;
+package service.projectsServices.projcetsFeedFetcherService;
 
-import services.helpers.ProjectsFilterServiceData;
-import model.projects.Project;
+import service.helpers.ProjectsFilterServiceData;
+import model.project.Project;
 
 import java.util.List;
 

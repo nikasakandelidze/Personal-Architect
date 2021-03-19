@@ -1,9 +1,9 @@
-package services.projectsServices.projectGroupFetcherService;
+package service.projectsServices.projectGroupFetcherService;
 
 import model.projectGroup.ProjectGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import services.exceptions.ProjectNotFoundException;
+import service.exceptions.ProjectNotFoundException;
 import useCases.projectGroups.ProjectGroupFetcherUseCase;
 
 import java.util.List;

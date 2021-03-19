@@ -10,7 +10,7 @@ import storage.projectsStorage.repositories.ProjectRepository;
 import javax.persistence.EntityManagerFactory;
 
 @Configuration
-@EnableJpaRepositories(basePackageClasses = {ProjectRepository.class})
+@EnableJpaRepositories(basePackageClasses = {storage.projectsStorage.repositories.ProjectRepository.class})
 public class StorageConfiguration {
     @Bean
     public LocalEntityManagerFactoryBean getEntityManagerFactory(){

@@ -1,4 +1,4 @@
-package services.helpers;
+package service.helpers;
 
 import model.projectGroup.ProjectGroup;
 import model.members.ProjectMember;

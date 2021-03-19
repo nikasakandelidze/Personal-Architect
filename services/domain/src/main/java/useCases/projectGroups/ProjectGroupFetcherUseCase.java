@@ -2,8 +2,8 @@ package useCases.projectGroups;
 
 import exceptions.ProjectNotFoundException;
 import model.projectGroup.ProjectGroup;
-import model.projects.Project;
-import model.projects.ProjectsFeed;
+import model.project.Project;
+import model.projectsFeed.ProjectsFeed;
 
 import java.util.List;
 import java.util.Optional;

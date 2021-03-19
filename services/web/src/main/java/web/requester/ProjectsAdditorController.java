@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import services.projectsServices.projectsFeedAdditorService.ProjectFeedAdditorService;
+import service.projectsServices.projectsFeedAdditorService.ProjectFeedAdditorService;
 import web.dto.ProjectDto;
 import web.utils.MappingUtils;
 

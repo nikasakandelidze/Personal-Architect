@@ -1,4 +1,4 @@
-package services.projectsServices.projectGroupFetcherService;
+package service.projectsServices.projectGroupFetcherService;
 
 import model.projectGroup.ProjectGroup;
 
