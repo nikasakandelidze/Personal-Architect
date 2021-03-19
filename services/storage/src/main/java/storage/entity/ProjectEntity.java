@@ -1,12 +1,10 @@
 package storage.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "projects")
 public class ProjectEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -14,7 +12,9 @@ public class ProjectEntity {
     private String projectType;
     private String description;
     private String linkToResource;
+    @ManyToOne
     private ProjectMemberEntity author;
+    @OneToOne
     private ProjectgroupEntity projectGroup;
     private String projectCategory;
 

@@ -1,14 +1,12 @@
 package storage.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "projectmembers")
 public class ProjectMemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,6 +14,7 @@ public class ProjectMemberEntity {
     private String email;
     private String firstName;
     private String lastName;
+    @ManyToMany
     private List<ProjectEntity> projectsInterestedIn;
 
     public ProjectMemberEntity(String memberId) {

@@ -1,7 +1,7 @@
 package storage.projectsStorage;
 
 import model.project.Project;
-import org.springframework.context.annotation.Import;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import storage.ProjectsFetcherStorage;
 import storage.entity.ProjectEntity;
@@ -13,13 +13,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Import({storage.projectsStorage.repositories.ProjectRepository.class})
 public class ProjectsFetcherDao implements ProjectsFetcherStorage {
-    private final ProjectRepository projectRepository;
-
-    public ProjectsFetcherDao(ProjectRepository projectRepository) {
-        this.projectRepository = projectRepository;
-    }
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @Override
     public Optional<Project> getProjectWithIdOf(String projectId) {

@@ -1,19 +1,18 @@
 package storage.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
+@Table(name = "projectgroups")
 public class ProjectgroupEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String projectId;
     private final String groupName;
+    @ManyToMany
     private final List<ProjectMemberEntity> members;
 
     public ProjectgroupEntity(List<ProjectMemberEntity> members, String groupName, String projectId) {
