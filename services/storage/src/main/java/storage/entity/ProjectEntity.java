@@ -18,6 +18,8 @@ public class ProjectEntity {
     private ProjectgroupEntity projectGroup;
     private String projectCategory;
 
+    public ProjectEntity(){}
+
     public ProjectEntity(String projectId) {
         this.projectId = projectId;
     }

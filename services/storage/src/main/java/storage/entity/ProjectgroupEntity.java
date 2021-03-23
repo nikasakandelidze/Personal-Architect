@@ -11,9 +11,11 @@ public class ProjectgroupEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String projectId;
-    private final String groupName;
+    private String groupName;
     @ManyToMany
-    private final List<ProjectMemberEntity> members;
+    private List<ProjectMemberEntity> members;
+
+    public ProjectgroupEntity(){}
 
     public ProjectgroupEntity(List<ProjectMemberEntity> members, String groupName, String projectId) {
         this.groupName = groupName;
