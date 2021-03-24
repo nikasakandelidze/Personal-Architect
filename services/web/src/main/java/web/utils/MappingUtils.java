@@ -44,7 +44,7 @@ public class MappingUtils {
         projectMember.setEmail(projectMemberDto.getEmail());
         projectMember.setFirstName(projectMemberDto.getFirstName());
         projectMember.setLastName(projectMemberDto.getLastName());
-        projectMember.setProjectsInterestedIn(projectMemberDto.getProjectsInterestedIn().stream().map(MappingUtils::projectFromProjectDto).collect(Collectors.toList()));
+        if(projectMemberDto.getProjectsInterestedIn()!=null)projectMember.setProjectsInterestedIn(projectMemberDto.getProjectsInterestedIn().stream().map(MappingUtils::projectFromProjectDto).collect(Collectors.toList()));
         return projectMember;
     }
 

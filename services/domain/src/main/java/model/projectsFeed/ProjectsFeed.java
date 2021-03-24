@@ -1,8 +1,8 @@
 package model.projectsFeed;
 
 import model.project.Project;
-import storage.ProjectsAdditorStorage;
-import storage.ProjectsFetcherStorage;
+import storage.project.ProjectsAdditorStorage;
+import storage.project.ProjectsFetcherStorage;
 
 import java.util.List;
 import java.util.Optional;

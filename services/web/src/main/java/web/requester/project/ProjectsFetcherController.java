@@ -1,4 +1,4 @@
-package web.requester;
+package web.requester.project;
 
 
 import service.projectsServices.projcetsFeedFetcherService.ProjectFeedFetcherService;

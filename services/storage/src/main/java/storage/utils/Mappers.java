@@ -60,4 +60,12 @@ public class Mappers {
         project.setAuthor(Mappers.projectMemberFromEntity(projectEntity.getAuthor()));
         return project;
     }
+
+    public static ProjectMemberEntity from(ProjectMember projectMember){
+        ProjectMemberEntity projectMemberEntity = new ProjectMemberEntity();
+        projectMemberEntity.setFirstName(projectMember.getFirstName());
+        projectMemberEntity.setLastName(projectMember.getLastName());
+        projectMemberEntity.setEmail(projectMember.getEmail());
+        return projectMemberEntity;
+    }
 }

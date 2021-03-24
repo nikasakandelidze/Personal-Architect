@@ -1,4 +1,4 @@
-package web.requester;
+package web.requester.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

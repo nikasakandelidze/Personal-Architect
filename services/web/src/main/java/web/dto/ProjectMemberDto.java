@@ -10,6 +10,8 @@ public class ProjectMemberDto {
     private String lastName;
     private List<ProjectDto> projectsInterestedIn;
 
+    public ProjectMemberDto(){}
+
     public ProjectMemberDto(String memberId) {
         this.memberId = memberId;
         projectsInterestedIn = new ArrayList<>();

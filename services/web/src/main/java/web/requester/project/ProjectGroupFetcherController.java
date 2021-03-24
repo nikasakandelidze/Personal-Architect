@@ -1,4 +1,4 @@
-package web.requester;
+package web.requester.project;
 
 import model.projectGroup.ProjectGroup;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package storage;
+package storage.project;
 
 import model.project.Project;
 

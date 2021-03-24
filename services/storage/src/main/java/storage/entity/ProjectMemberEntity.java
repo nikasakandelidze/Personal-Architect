@@ -1,5 +1,7 @@
 package storage.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +11,9 @@ import java.util.UUID;
 @Table(name = "projectmembers")
 public class ProjectMemberEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private final String memberId;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String memberId;
     private String email;
     private String firstName;
     private String lastName;
@@ -28,7 +31,6 @@ public class ProjectMemberEntity {
     }
 
     public ProjectMemberEntity(){
-        this.memberId= UUID.randomUUID().toString();
         projectsInterestedIn = new ArrayList<>();
     }
 

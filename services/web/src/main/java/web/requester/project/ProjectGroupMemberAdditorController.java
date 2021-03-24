@@ -1,4 +1,4 @@
-package web.requester;
+package web.requester.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +19,7 @@ public class ProjectGroupMemberAdditorController {
         this.projectGroupMemberAdditorService = projectGroupMemberAdditorService;
     }
 
+    //todo signature of the method doesn't show true meaning of the func
     @PostMapping("api/projects/{projectId}/group/members")
     public ResponseEntity<?> addNewMemberToProjectWithId(@PathVariable String projectId, @RequestBody ProjectMemberDto projectMemberDto){
         projectGroupMemberAdditorService.addProjectMemberIntoProjectGroup(MappingUtils.projectMemberFromDto(projectMemberDto), projectId);
