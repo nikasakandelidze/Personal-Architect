@@ -1,5 +1,7 @@
 package storage.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,8 @@ import java.util.UUID;
 @Table(name = "projectgroups")
 public class ProjectgroupEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String projectGroupId;
     private String groupName;
     @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "projectgroupEntities")

@@ -16,9 +16,9 @@ public class ProjectFeedAdditorServiceImpl implements ProjectFeedAdditorService{
     }
 
     @Override
-    public void addProject(Project project) {
+    public void addProject(Project project, String authorId) {
         try{
-            projectsFeedAdditorUseCase.addNewProject(project);
+            projectsFeedAdditorUseCase.addNewProject(project, authorId);
         }catch (Exception e){
             throw new CouldntAddProjectException(String.format("Couldn't add project with properties of: %s; Error message %s", project.toString(), e.getMessage()));
         }

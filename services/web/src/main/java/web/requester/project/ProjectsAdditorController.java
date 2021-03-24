@@ -1,6 +1,7 @@
 package web.requester.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class ProjectsAdditorController {
     }
 
     @PostMapping("/api/projects")
-    public void addNewProject(@RequestBody ProjectDto projectDto){
-        projectFeedAdditorService.addProject(MappingUtils.projectFromProjectDto(projectDto));
+    public void addNewProject(@RequestBody ProjectDto projectDto, @PathVariable String authorId){
+        projectFeedAdditorService.addProject(MappingUtils.projectFromProjectDto(projectDto), authorId);
     }
 }

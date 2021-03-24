@@ -7,6 +7,8 @@ import storage.entity.ProjectEntity;
 import storage.entity.ProjectMemberEntity;
 import storage.entity.ProjectgroupEntity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Mappers {
@@ -23,15 +25,17 @@ public class Mappers {
     }
 
     public static ProjectgroupEntity projectGroupEntityFromDomain(ProjectGroup projectGroup) {
-        return new ProjectgroupEntity(projectGroup.getMembers().stream().map(Mappers::projectMemberEntityFromDomain).collect(Collectors.toList()), projectGroup.getGroupName(), projectGroup.getProjectId());
+        List<ProjectMember> members = projectGroup.getMembers()==null ? new ArrayList<>() : projectGroup.getMembers();
+        List<ProjectMemberEntity> collect = members.stream().map(Mappers::projectMemberEntityFromDomain).collect(Collectors.toList());
+        return new ProjectgroupEntity(collect, projectGroup.getGroupName(), projectGroup.getProjectId());
     }
 
     public static ProjectEntity projectEntityFromDomain(Project project) {
         ProjectEntity projectEntity = new ProjectEntity(project.getProjectId());
-        projectEntity.setProjectGroup(projectGroupEntityFromDomain(project.getProjectGroup()));
+        if(project.getProjectGroup()!=null)projectEntity.setProjectGroup(projectGroupEntityFromDomain(project.getProjectGroup()));
         projectEntity.setProjectType(project.getProjectType());
         projectEntity.setProjectCategory(project.getProjectCategory());
-        projectEntity.setAuthor(projectMemberEntityFromDomain(project.getAuthor()));
+        if(project.getAuthor() != null)projectEntity.setAuthor(projectMemberEntityFromDomain(project.getAuthor()));
         projectEntity.setDescription(project.getDescription());
         projectEntity.setLinkToResource(project.getLinkToResource());
         return projectEntity;
@@ -42,7 +46,7 @@ public class Mappers {
         projectMember.setEmail(projectMemberEntity.getEmail());
         projectMember.setFirstName(projectMemberEntity.getFirstName());
         projectMember.setLastName(projectMemberEntity.getLastName());
-        projectMember.setProjectsInterestedIn(projectMemberEntity.getProjectsInterestedIn().stream().map(Mappers::domainProjectFromEntity).collect(Collectors.toList()));
+        if(projectMemberEntity.getProjectsInterestedIn()!=null) projectMember.setProjectsInterestedIn(projectMemberEntity.getProjectsInterestedIn().stream().map(Mappers::domainProjectFromEntity).collect(Collectors.toList()));
         return projectMember;
     }
 

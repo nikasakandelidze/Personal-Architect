@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import storage.member.MemberAdditorStorage;
+import storage.member.MemberFetcherStorage;
 import storage.project.ProjectsAdditorStorage;
 import storage.project.ProjectsFetcherStorage;
 import useCases.projectGroups.ProjectGroupFetcherUseCase;
@@ -13,13 +15,17 @@ import useCases.projectsFeed.ProjectsFeedAdditorUseCase;
 import useCases.projectsFeed.ProjectsFeedFetcherUseCase;
 import useCases.projectsFeed.helper.Projectsfilter.ConcreteProjectFilterer;
 import useCases.projectsFeed.helper.Projectsfilter.ProjectFilterer;
+import useCases.projectsMembers.ProjectMemberFetcherUseCase;
 
 @Configuration
-@Import({storage.projectsStorage.ProjectAdditorDao.class, storage.projectsStorage.ProjectsFetcherDao.class})
+@Import({storage.projectsStorage.ProjectAdditorDao.class, storage.projectsStorage.ProjectsFetcherDao.class, storage.membersStorage.MemberFetcherDao.class, storage.membersStorage.MemberAdditorDao.class})
 public class ProjectDomainBeansConfiguration {
 
     @Autowired private ProjectsAdditorStorage projectsAdditorStorage;
     @Autowired private ProjectsFetcherStorage projectsFetcherStorage;
+
+    @Autowired private MemberFetcherStorage memberFetcherStorage;
+    @Autowired private MemberAdditorStorage memberAdditorStorage;
 
     @Bean
     public ProjectsFeed projectsFeed(){
@@ -32,13 +38,18 @@ public class ProjectDomainBeansConfiguration {
     }
 
     @Bean
+    public ProjectMemberFetcherUseCase projectMemberFetcherUseCase(){
+        return new ProjectMemberFetcherUseCase(memberFetcherStorage);
+    }
+
+    @Bean
     public ProjectsFeedFetcherUseCase projectsFeedFetcherUseCase(){
         return new ProjectsFeedFetcherUseCase(projectsFeed(), projectFilterer());
     }
 
     @Bean
     public ProjectsFeedAdditorUseCase projectsFeedAdditorUseCase(){
-        return new ProjectsFeedAdditorUseCase(projectsFeed());
+        return new ProjectsFeedAdditorUseCase(projectsFeed(), projectMemberFetcherUseCase());
     }
 
     @Bean

@@ -3,5 +3,5 @@ package storage.project;
 import model.project.Project;
 
 public interface ProjectsAdditorStorage {
-    void addProject(Project project);
+    void createNewProject(Project project, String authorId);
 }

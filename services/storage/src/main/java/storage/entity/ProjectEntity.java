@@ -1,13 +1,16 @@
 package storage.entity;
 
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "projects")
 public class ProjectEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String projectId;
     private String projectType;
     private String description;
@@ -15,7 +18,7 @@ public class ProjectEntity {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "memberId")
     private ProjectMemberEntity author;
-    @OneToOne(mappedBy = "projectEntity", cascade = {CascadeType.ALL})
+    @OneToOne(mappedBy = "projectEntity", cascade = {CascadeType.ALL}, optional = true, fetch = FetchType.LAZY)
     private ProjectgroupEntity projectGroup;
     private String projectCategory;
 
