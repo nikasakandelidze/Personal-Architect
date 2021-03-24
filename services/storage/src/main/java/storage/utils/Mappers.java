@@ -47,7 +47,7 @@ public class Mappers {
     }
 
     public static ProjectGroup projectGroupFromEntity(ProjectgroupEntity projectgroupEntity){
-        return new ProjectGroup(projectgroupEntity.getMembers().stream().map(Mappers::projectMemberFromEntity).collect(Collectors.toList()), projectgroupEntity.getGroupName(), projectgroupEntity.getProjectId());
+        return new ProjectGroup(projectgroupEntity.getMembers().stream().map(Mappers::projectMemberFromEntity).collect(Collectors.toList()), projectgroupEntity.getGroupName(), projectgroupEntity.getProjectGroupId());
     }
 
     public static Project domainProjectFromEntity(ProjectEntity projectEntity){

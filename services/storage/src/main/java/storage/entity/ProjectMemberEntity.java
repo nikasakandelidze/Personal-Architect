@@ -10,12 +10,17 @@ import java.util.UUID;
 public class ProjectMemberEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String memberId;
+    private final String memberId;
     private String email;
     private String firstName;
     private String lastName;
-    @ManyToMany
+    @OneToMany(mappedBy = "author", cascade = {CascadeType.ALL})
     private List<ProjectEntity> projectsInterestedIn;
+    @ManyToMany(cascade = {CascadeType.ALL})
+    @JoinTable(name = "projectMembers_ProjectGroups_table",
+            joinColumns = {@JoinColumn(name = "memberId")},
+            inverseJoinColumns = {@JoinColumn(name = "projectGroupId")})
+    private List<ProjectgroupEntity> projectgroupEntities;
 
     public ProjectMemberEntity(String memberId) {
         this.memberId = memberId;
@@ -57,6 +62,14 @@ public class ProjectMemberEntity {
 
     public List<ProjectEntity> getProjectsInterestedIn() {
         return projectsInterestedIn;
+    }
+
+    public List<ProjectgroupEntity> getProjectgroupEntities() {
+        return projectgroupEntities;
+    }
+
+    public void setProjectgroupEntities(List<ProjectgroupEntity> projectgroupEntities) {
+        this.projectgroupEntities = projectgroupEntities;
     }
 
     public void setProjectsInterestedIn(List<ProjectEntity> projectsInterestedIn) {

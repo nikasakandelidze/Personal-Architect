@@ -12,9 +12,10 @@ public class ProjectEntity {
     private String projectType;
     private String description;
     private String linkToResource;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "memberId")
     private ProjectMemberEntity author;
-    @OneToOne
+    @OneToOne(mappedBy = "projectEntity", cascade = {CascadeType.ALL})
     private ProjectgroupEntity projectGroup;
     private String projectCategory;
 

@@ -10,31 +10,34 @@ import java.util.UUID;
 public class ProjectgroupEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String projectId;
+    private String projectGroupId;
     private String groupName;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "projectgroupEntities")
     private List<ProjectMemberEntity> members;
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "projectId")
+    private ProjectEntity projectEntity;
 
     public ProjectgroupEntity(){}
 
-    public ProjectgroupEntity(List<ProjectMemberEntity> members, String groupName, String projectId) {
+    public ProjectgroupEntity(List<ProjectMemberEntity> members, String groupName, String projectGroupId) {
         this.groupName = groupName;
         this.members = members;
-        this.projectId = projectId;
+        this.projectGroupId = projectGroupId;
     }
 
     public ProjectgroupEntity(String groupName) {
         this.members = new ArrayList<>();
         this.groupName = groupName;
-        this.projectId = UUID.randomUUID().toString();
+        this.projectGroupId = UUID.randomUUID().toString();
     }
 
-    public String getProjectId() {
-        return projectId;
+    public String getProjectGroupId() {
+        return projectGroupId;
     }
 
-    public void setProjectId(String projectId) {
-        this.projectId = projectId;
+    public void setProjectGroupId(String projectGroupId) {
+        this.projectGroupId = projectGroupId;
     }
 
     public String getGroupName() {
@@ -45,4 +48,11 @@ public class ProjectgroupEntity {
         return members;
     }
 
+    public ProjectEntity getProjectEntity() {
+        return projectEntity;
+    }
+
+    public void setProjectEntity(ProjectEntity projectEntity) {
+        this.projectEntity = projectEntity;
+    }
 }
