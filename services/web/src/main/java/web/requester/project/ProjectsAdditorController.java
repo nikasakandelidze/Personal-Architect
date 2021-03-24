@@ -19,7 +19,7 @@ public class ProjectsAdditorController {
         this.projectFeedAdditorService = projectFeedAdditorService;
     }
 
-    @PostMapping("/api/projects")
+    @PostMapping("/api/projects/{authorId}")
     public void addNewProject(@RequestBody ProjectDto projectDto, @PathVariable String authorId){
         projectFeedAdditorService.addProject(WebMappers.projectFromProjectDto(projectDto), authorId);
     }

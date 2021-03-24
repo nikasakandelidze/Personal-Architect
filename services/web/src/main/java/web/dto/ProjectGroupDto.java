@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 public class ProjectGroupDto {
-    private  String projectId;
-    private  String groupName;
-    private  List<ProjectMemberDto> members;
+    private String projectId;
+    private String groupName;
+    private List<ProjectMemberDto> members;
 
     public ProjectGroupDto(List<ProjectMemberDto> members, String groupName, String projectId) {
         this.groupName = groupName;
@@ -25,7 +25,7 @@ public class ProjectGroupDto {
         return members;
     }
 
-    public void addNewMember(ProjectMemberDto projectMember){
+    public void addNewMember(ProjectMemberDto projectMember) {
         members.add(projectMember);
     }
 
