@@ -8,7 +8,7 @@ import storage.entity.ProjectgroupEntity;
 import storage.group.ProjectGroupCreatorStorage;
 import storage.groupStorage.repository.ProjectGroupRepository;
 import storage.projectsStorage.repositories.ProjectRepository;
-import storage.utils.Mappers;
+import storage.utils.StorageMappers;
 
 import java.util.Optional;
 
@@ -23,7 +23,7 @@ public class ProjectgroupCreatorDao implements ProjectGroupCreatorStorage{
     @Override
     public void createNewProjectGroup(ProjectGroup projectGroup) {
         Optional<ProjectEntity> byId = projectRepository.findById(projectGroup.getProjectId());
-        ProjectgroupEntity entity = Mappers.projectGroupEntityFromDomain(projectGroup);
+        ProjectgroupEntity entity = StorageMappers.projectGroupEntityFromDomain(projectGroup);
         entity.setProjectEntity(byId.get());
         projectGroupRepository.save(entity);
     }

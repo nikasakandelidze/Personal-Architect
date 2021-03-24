@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import storage.entity.ProjectMemberEntity;
 import storage.member.MemberFetcherStorage;
 import storage.membersStorage.repositories.MembersRepository;
-import storage.utils.Mappers;
+import storage.utils.StorageMappers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class MemberFetcherDao implements MemberFetcherStorage {
         List<ProjectMember> projectMembers = new ArrayList<>();
         Iterable<ProjectMemberEntity> all = membersRepository.findAll();
         all.forEach(e->{
-            projectMembers.add(Mappers.projectMemberFromEntity(e));
+            projectMembers.add(StorageMappers.projectMemberFromEntity(e));
         });
         return projectMembers;
     }

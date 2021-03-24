@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import service.projectsServices.projectGroupMemberAdditorService.ProjectGroupMemberAdditorService;
 import web.dto.ProjectMemberDto;
-import web.utils.MappingUtils;
+import web.utils.WebMappers;
 
 @RestController
 public class ProjectGroupMemberAdditorController {
@@ -22,7 +22,7 @@ public class ProjectGroupMemberAdditorController {
     //todo signature of the method doesn't show true meaning of the func
     @PostMapping("api/projects/{projectId}/group/members")
     public ResponseEntity<?> addNewMemberToProjectWithId(@PathVariable String projectId, @RequestBody ProjectMemberDto projectMemberDto){
-        projectGroupMemberAdditorService.addProjectMemberIntoProjectGroup(MappingUtils.projectMemberFromDto(projectMemberDto), projectId);
+        projectGroupMemberAdditorService.addProjectMemberIntoProjectGroup(WebMappers.projectMemberFromDto(projectMemberDto), projectId);
         return ResponseEntity.ok("Added");
     }
 

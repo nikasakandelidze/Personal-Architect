@@ -1,4 +1,4 @@
-package web.requester.projectMember;
+package web.requester.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import service.memberServices.ProjectMemberCreatorService;
 import web.dto.ProjectMemberDto;
-import web.utils.MappingUtils;
+import web.utils.WebMappers;
 
 @Controller
 public class ProjectMemberCreatorController {
@@ -18,9 +18,9 @@ public class ProjectMemberCreatorController {
         this.projectMemberCreatorService = projectMemberCreatorService;
     }
 
-    @PostMapping("/api/projectMembers")
+    @PostMapping("/api/members")
     public ResponseEntity<?> createNewProjectMember(@RequestBody ProjectMemberDto projectMemberDto){
-        projectMemberCreatorService.createNewMember(MappingUtils.projectMemberFromDto(projectMemberDto));
+        projectMemberCreatorService.createNewMember(WebMappers.projectMemberFromDto(projectMemberDto));
         return ResponseEntity.ok("OK");
     }
 

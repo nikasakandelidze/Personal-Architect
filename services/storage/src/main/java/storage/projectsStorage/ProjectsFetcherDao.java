@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import storage.project.ProjectsFetcherStorage;
 import storage.entity.ProjectEntity;
 import storage.projectsStorage.repositories.ProjectRepository;
-import storage.utils.Mappers;
+import storage.utils.StorageMappers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ public class ProjectsFetcherDao implements ProjectsFetcherStorage {
     @Override
     public Optional<Project> getProjectWithIdOf(String projectId) {
         Optional<ProjectEntity> byId = projectRepository.findById(projectId);
-        Project project= Mappers.domainProjectFromEntity(byId.get());
+        Project project= StorageMappers.domainProjectFromEntity(byId.get());
         return Optional.of(project);
     }
 
@@ -29,7 +29,7 @@ public class ProjectsFetcherDao implements ProjectsFetcherStorage {
         List<Project> result = new ArrayList<Project>();
         Iterable<ProjectEntity> all = projectRepository.findAll();
         all.forEach(projectEntity -> {
-            result.add(Mappers.domainProjectFromEntity(projectEntity));
+            result.add(StorageMappers.domainProjectFromEntity(projectEntity));
         });
         return result;
     }

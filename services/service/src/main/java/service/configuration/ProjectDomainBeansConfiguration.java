@@ -24,9 +24,6 @@ public class ProjectDomainBeansConfiguration {
     @Autowired private ProjectsAdditorStorage projectsAdditorStorage;
     @Autowired private ProjectsFetcherStorage projectsFetcherStorage;
 
-    @Autowired private MemberFetcherStorage memberFetcherStorage;
-    @Autowired private MemberAdditorStorage memberAdditorStorage;
-
     @Bean
     public ProjectsFeed projectsFeed(){
         return new ProjectsFeed(projectsAdditorStorage, projectsFetcherStorage);
@@ -38,18 +35,13 @@ public class ProjectDomainBeansConfiguration {
     }
 
     @Bean
-    public ProjectMemberFetcherUseCase projectMemberFetcherUseCase(){
-        return new ProjectMemberFetcherUseCase(memberFetcherStorage);
-    }
-
-    @Bean
     public ProjectsFeedFetcherUseCase projectsFeedFetcherUseCase(){
         return new ProjectsFeedFetcherUseCase(projectsFeed(), projectFilterer());
     }
 
     @Bean
     public ProjectsFeedAdditorUseCase projectsFeedAdditorUseCase(){
-        return new ProjectsFeedAdditorUseCase(projectsFeed(), projectMemberFetcherUseCase());
+        return new ProjectsFeedAdditorUseCase(projectsFeed());
     }
 
     @Bean

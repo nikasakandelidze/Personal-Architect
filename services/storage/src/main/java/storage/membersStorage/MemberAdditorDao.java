@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import storage.entity.ProjectMemberEntity;
 import storage.member.MemberAdditorStorage;
 import storage.membersStorage.repositories.MembersRepository;
-import storage.utils.Mappers;
+import storage.utils.StorageMappers;
 
 @Repository
 public class MemberAdditorDao implements MemberAdditorStorage {
@@ -15,7 +15,7 @@ public class MemberAdditorDao implements MemberAdditorStorage {
 
     @Override
     public void addNewMember(ProjectMember projectMember) {
-        ProjectMemberEntity from = Mappers.from(projectMember);
+        ProjectMemberEntity from = StorageMappers.from(projectMember);
         membersRepository.save(from);
     }
 }

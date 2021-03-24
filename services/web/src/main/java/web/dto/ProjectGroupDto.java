@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.UUID;
 
 public class ProjectGroupDto {
-    private final String projectId;
-    private final String groupName;
-    private final List<ProjectMemberDto> members;
+    private  String projectId;
+    private  String groupName;
+    private  List<ProjectMemberDto> members;
 
     public ProjectGroupDto(List<ProjectMemberDto> members, String groupName, String projectId) {
         this.groupName = groupName;
@@ -33,5 +33,19 @@ public class ProjectGroupDto {
         return groupName;
     }
 
+    public String getProjectId() {
+        return projectId;
+    }
 
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public void setMembers(List<ProjectMemberDto> members) {
+        this.members = members;
+    }
 }

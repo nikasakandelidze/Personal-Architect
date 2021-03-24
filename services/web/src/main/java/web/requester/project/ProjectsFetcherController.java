@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import web.dto.ProjectDto;
 import web.dto.ProjectsDto;
-import web.utils.MappingUtils;
+import web.utils.WebMappers;
 
 @RestController
 public class ProjectsFetcherController {
@@ -29,6 +29,6 @@ public class ProjectsFetcherController {
     @GetMapping("/api/projects/{projectId}")
     public ResponseEntity<ProjectDto> getProjectWithId(@PathVariable("projectId")String projectId){
         final Project projectWithId = projectFeedService.getProjectWithId(projectId);
-        return ResponseEntity.ok(MappingUtils.projectDtoFromProject(projectWithId));
+        return ResponseEntity.ok(WebMappers.projectDtoFromProject(projectWithId));
     }
 }

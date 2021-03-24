@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import service.projectsServices.projectGroupFetcherService.ProjectGroupFetcherService;
 import web.dto.ProjectGroupDto;
 import web.responses.ResponseProjectGroups;
-import web.utils.MappingUtils;
+import web.utils.WebMappers;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +26,7 @@ public class ProjectGroupFetcherController {
     @GetMapping("/api/projects/groups")
     public ResponseEntity<ResponseProjectGroups> getAllProjectGroups(){
         final List<ProjectGroupDto> collect = projectGroupFetcherService.getAllProjectGroups().stream()
-                .map(MappingUtils::projectGroupToDto)
+                .map(WebMappers::projectGroupToDto)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(new ResponseProjectGroups(collect));
     }
@@ -34,6 +34,6 @@ public class ProjectGroupFetcherController {
     @GetMapping("/api/projects/groups/{projectId}")
     public ResponseEntity<ProjectGroupDto> getProjectGroupWithIdOf(@PathVariable String projectId){
         final ProjectGroup projectGroupWithProjectIdOf = projectGroupFetcherService.getProjectGroupWithProjectIdOf(projectId);
-        return ResponseEntity.ok(MappingUtils.projectGroupToDto(projectGroupWithProjectIdOf));
+        return ResponseEntity.ok(WebMappers.projectGroupToDto(projectGroupWithProjectIdOf));
     }
 }

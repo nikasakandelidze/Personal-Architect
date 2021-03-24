@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Mappers {
-    private Mappers() {
+public class StorageMappers {
+    private StorageMappers() {
     } //so that no-one can instantiate Utils class.
 
     public static ProjectMemberEntity projectMemberEntityFromDomain(ProjectMember projectMember){
@@ -20,13 +20,13 @@ public class Mappers {
         projectMemberEntity.setEmail(projectMember.getEmail());
         projectMemberEntity.setFirstName(projectMember.getFirstName());
         projectMemberEntity.setLastName(projectMember.getLastName());
-        projectMemberEntity.setProjectsInterestedIn(projectMember.getProjectsInterestedIn().stream().map(Mappers::projectEntityFromDomain).collect(Collectors.toList()));
+        projectMemberEntity.setProjectsInterestedIn(projectMember.getProjectsInterestedIn().stream().map(StorageMappers::projectEntityFromDomain).collect(Collectors.toList()));
         return projectMemberEntity;
     }
 
     public static ProjectgroupEntity projectGroupEntityFromDomain(ProjectGroup projectGroup) {
         List<ProjectMember> members = projectGroup.getMembers()==null ? new ArrayList<>() : projectGroup.getMembers();
-        List<ProjectMemberEntity> collect = members.stream().map(Mappers::projectMemberEntityFromDomain).collect(Collectors.toList());
+        List<ProjectMemberEntity> collect = members.stream().map(StorageMappers::projectMemberEntityFromDomain).collect(Collectors.toList());
         return new ProjectgroupEntity(collect, projectGroup.getGroupName(), projectGroup.getProjectId());
     }
 
@@ -46,12 +46,12 @@ public class Mappers {
         projectMember.setEmail(projectMemberEntity.getEmail());
         projectMember.setFirstName(projectMemberEntity.getFirstName());
         projectMember.setLastName(projectMemberEntity.getLastName());
-        if(projectMemberEntity.getProjectsInterestedIn()!=null) projectMember.setProjectsInterestedIn(projectMemberEntity.getProjectsInterestedIn().stream().map(Mappers::domainProjectFromEntity).collect(Collectors.toList()));
+        if(projectMemberEntity.getProjectsInterestedIn()!=null) projectMember.setProjectsInterestedIn(projectMemberEntity.getProjectsInterestedIn().stream().map(StorageMappers::domainProjectFromEntity).collect(Collectors.toList()));
         return projectMember;
     }
 
     public static ProjectGroup projectGroupFromEntity(ProjectgroupEntity projectgroupEntity){
-        return new ProjectGroup(projectgroupEntity.getMembers().stream().map(Mappers::projectMemberFromEntity).collect(Collectors.toList()), projectgroupEntity.getGroupName(), projectgroupEntity.getProjectGroupId());
+        return new ProjectGroup(projectgroupEntity.getMembers().stream().map(StorageMappers::projectMemberFromEntity).collect(Collectors.toList()), projectgroupEntity.getGroupName(), projectgroupEntity.getProjectGroupId());
     }
 
     public static Project domainProjectFromEntity(ProjectEntity projectEntity){
@@ -61,7 +61,7 @@ public class Mappers {
         project.setProjectCategory(projectEntity.getProjectCategory());
         project.setDescription(projectEntity.getDescription());
         project.setLinkToResource(projectEntity.getLinkToResource());
-        project.setAuthor(Mappers.projectMemberFromEntity(projectEntity.getAuthor()));
+        project.setAuthor(StorageMappers.projectMemberFromEntity(projectEntity.getAuthor()));
         return project;
     }
 

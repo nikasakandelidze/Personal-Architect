@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import service.projectsServices.projectsFeedAdditorService.ProjectFeedAdditorService;
 import web.dto.ProjectDto;
-import web.utils.MappingUtils;
+import web.utils.WebMappers;
 
 @RestController
 public class ProjectsAdditorController {
@@ -21,6 +21,6 @@ public class ProjectsAdditorController {
 
     @PostMapping("/api/projects")
     public void addNewProject(@RequestBody ProjectDto projectDto, @PathVariable String authorId){
-        projectFeedAdditorService.addProject(MappingUtils.projectFromProjectDto(projectDto), authorId);
+        projectFeedAdditorService.addProject(WebMappers.projectFromProjectDto(projectDto), authorId);
     }
 }
