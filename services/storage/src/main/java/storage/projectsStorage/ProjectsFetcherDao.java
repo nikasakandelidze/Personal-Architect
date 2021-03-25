@@ -28,6 +28,7 @@ public class ProjectsFetcherDao implements ProjectsFetcherStorage {
     public List<Project> getAllProjects() {
         List<Project> result = new ArrayList<Project>();
         Iterable<ProjectEntity> all = projectRepository.findAll();
+        System.out.println("iteration");
         all.forEach(projectEntity -> {
             result.add(StorageMappers.domainProjectFromEntity(projectEntity));
         });

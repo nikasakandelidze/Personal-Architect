@@ -42,26 +42,55 @@ public class StorageMappers {
     }
 
     public static ProjectMember projectMemberFromEntity(ProjectMemberEntity projectMemberEntity){
+        ProjectMember projectMember = new ProjectMember(projectMemberEntity.getMemberId());
+        projectMember.setEmail(projectMemberEntity.getEmail());
+        projectMember.setFirstName(projectMemberEntity.getFirstName());
+        projectMember.setLastName(projectMemberEntity.getLastName());
+//        if(projectMemberEntity.getProjectsInterestedIn()!=null) projectMember.setProjectsInterestedIn(projectMemberEntity.getProjectsInterestedIn().stream().map(StorageMappers::domainProjectFromEntity).collect(Collectors.toList()));
+        return projectMember;
+    }
+
+    public static ProjectMember from(ProjectMemberEntity projectMemberEntity){
         ProjectMember projectMember = new ProjectMember();
         projectMember.setEmail(projectMemberEntity.getEmail());
         projectMember.setFirstName(projectMemberEntity.getFirstName());
         projectMember.setLastName(projectMemberEntity.getLastName());
-        if(projectMemberEntity.getProjectsInterestedIn()!=null) projectMember.setProjectsInterestedIn(projectMemberEntity.getProjectsInterestedIn().stream().map(StorageMappers::domainProjectFromEntity).collect(Collectors.toList()));
         return projectMember;
     }
 
     public static ProjectGroup projectGroupFromEntity(ProjectgroupEntity projectgroupEntity){
-        return new ProjectGroup(projectgroupEntity.getMembers().stream().map(StorageMappers::projectMemberFromEntity).collect(Collectors.toList()), projectgroupEntity.getGroupName(), projectgroupEntity.getProjectGroupId());
+        List<ProjectMemberEntity> members = projectgroupEntity.getMembers();
+        List<ProjectMember> temp = members==null ? new ArrayList<>() : members.stream().map(StorageMappers::from).collect(Collectors.toList());
+        return new ProjectGroup(temp, projectgroupEntity.getGroupName(), projectgroupEntity.getProjectGroupId());
     }
 
     public static Project domainProjectFromEntity(ProjectEntity projectEntity){
         Project project = new Project(projectEntity.getProjectId());
-        project.setProjectGroup(projectGroupFromEntity(projectEntity.getProjectGroup()));
+        ProjectgroupEntity projectGroup1 = projectEntity.getProjectGroup();
+        ProjectGroup projectGroup = projectGroup1==null ? null : projectGroupFromEntity(projectGroup1);
+        project.setProjectGroup(projectGroup);
         project.setProjectType(projectEntity.getProjectType());
         project.setProjectCategory(projectEntity.getProjectCategory());
         project.setDescription(projectEntity.getDescription());
         project.setLinkToResource(projectEntity.getLinkToResource());
-        project.setAuthor(StorageMappers.projectMemberFromEntity(projectEntity.getAuthor()));
+        ProjectMemberEntity author1 = projectEntity.getAuthor();
+        ProjectMember author = author1 == null ? null : StorageMappers.projectMemberFromEntity(author1);
+        project.setAuthor(author);
+        return project;
+    }
+
+    public static Project from(ProjectEntity projectEntity){
+        Project project = new Project(projectEntity.getProjectId());
+        ProjectgroupEntity projectGroup1 = projectEntity.getProjectGroup();
+        ProjectGroup projectGroup = projectGroup1==null ? null : projectGroupFromEntity(projectGroup1);
+        project.setProjectGroup(projectGroup);
+        project.setProjectType(projectEntity.getProjectType());
+        project.setProjectCategory(projectEntity.getProjectCategory());
+        project.setDescription(projectEntity.getDescription());
+        project.setLinkToResource(projectEntity.getLinkToResource());
+        ProjectMemberEntity author1 = projectEntity.getAuthor();
+        ProjectMember author = author1 == null ? null : StorageMappers.projectMemberFromEntity(author1);
+        project.setAuthor(author);
         return project;
     }
 

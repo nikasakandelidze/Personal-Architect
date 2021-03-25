@@ -18,7 +18,7 @@ public class ProjectEntity {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "memberId")
     private ProjectMemberEntity author;
-    @OneToOne(mappedBy = "projectEntity", cascade = {CascadeType.ALL}, optional = true, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "projectEntity", cascade = {CascadeType.ALL})
     private ProjectgroupEntity projectGroup;
     private String projectCategory;
 

@@ -20,7 +20,6 @@ public class ProjectMember {
     }
 
     public ProjectMember(){
-        this.memberId= UUID.randomUUID().toString();
         projectsInterestedIn = new ArrayList<>();
     }
 
