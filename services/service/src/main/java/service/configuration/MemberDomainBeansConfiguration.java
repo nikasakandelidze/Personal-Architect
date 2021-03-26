@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Import;
 import storage.member.MemberAdditorStorage;
 import storage.member.MemberFetcherStorage;
 import useCases.projectsMembers.ProjectMemberCreatorUseCase;
+import useCases.projectsMembers.ProjectMemberFetcherUseCase;
 
 @Configuration
 @Import({storage.membersStorage.MemberAdditorDao.class, storage.membersStorage.MemberFetcherDao.class})
@@ -17,5 +18,10 @@ public class MemberDomainBeansConfiguration {
     @Bean
     public ProjectMemberCreatorUseCase projectMemberCreatorUseCase(){
         return new ProjectMemberCreatorUseCase(memberAdditorDao);
+    }
+
+    @Bean
+    public ProjectMemberFetcherUseCase projectMemberFetcherUseCase(){
+        return new ProjectMemberFetcherUseCase(memberFetcherDao);
     }
 }

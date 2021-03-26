@@ -17,7 +17,7 @@ public class ProjectMemberFetcherUseCase {
         return memberFetcherStorage.getAllMembers();
     }
 
-    public Optional<ProjectMember> getProjectMemberWithIdOf(String id){
-        return memberFetcherStorage.getProjectMemberWithIdOf(id);
-    }
+    public List<ProjectMember> getAllMemberOfTheProjectWithIdOf(String projectId){
+        return memberFetcherStorage.getAllMembersOfProjectWithId(projectId);
+    };
 }
