@@ -2,7 +2,6 @@ package web.requester.groupChat;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.ext.web.Router;
-import web.requester.groupChat.eventBus.EventBusChatDto;
 import web.requester.groupChat.eventBus.EventBusConstants;
 
 public class ChatVerticle extends AbstractVerticle {
