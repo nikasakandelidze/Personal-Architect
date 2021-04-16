@@ -12,10 +12,10 @@ import javax.annotation.PostConstruct;
 public class VertxInitializer {
     @Autowired
     @Qualifier("chatVerticle")
-    Verticle chatVerticle;
+    private Verticle chatVerticle;
     @Autowired
     @Qualifier("chatServiceHandler")
-    Verticle chatServiceHandler;
+    private Verticle chatServiceHandler;
 
     @PostConstruct
     void initializeVertex() {
