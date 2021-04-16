@@ -21,5 +21,4 @@ public class VertxConfiguration {
     public Verticle chatServiceHandlerVerticle() {
         return new ChatServiceHandlerVerticle();
     }
-
 }

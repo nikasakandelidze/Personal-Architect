@@ -2,14 +2,10 @@ package web.requester.groupChat;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.Message;
-import org.springframework.beans.factory.annotation.Autowired;
-import service.chatServices.ChatServiceProvider;
+import service.chatServices.ChatServiceEventBus;
 import web.requester.groupChat.eventBus.EventBusConstants;
 
 public class ChatServiceHandlerVerticle extends AbstractVerticle {
-
-    @Autowired
-    private ChatServiceProvider chatServiceProvider;
 
     public static final String DELIMITER = ":";
 
@@ -21,6 +17,15 @@ public class ChatServiceHandlerVerticle extends AbstractVerticle {
     }
 
     private void serveSendingGroupChatMessage(Message<Object> msg) {
+        vertx.executeBlocking(promise -> {
+            String message = (String) msg.body();
+            String[] array = message.split(DELIMITER);
+            vertx.eventBus().publish(ChatServiceEventBus.PRIVATE_CHAT_SERVICE_BUS, array);
+            promise.complete(array);
+        }, result -> {
+            String[] array = (String[]) result.result();
+            msg.reply(String.format("Sent message from user with id:%s, to user with id:%s", array[0], array[1]));
+        });
         String message = (String) msg.body();
         String[] array = message.split(DELIMITER);
         msg.reply(String.format("Sent message from user with id:%s, to group with id:%s", array[0], array[1]));
@@ -28,14 +33,9 @@ public class ChatServiceHandlerVerticle extends AbstractVerticle {
 
 
     private void serveSendingPersonalChatMessage(Message<Object> msg) {
-        vertx.executeBlocking(promise -> {
-            String message = (String) msg.body();
-            String[] array = message.split(DELIMITER);
-            chatServiceProvider.sendMessageFromUserToUser(array[0], array[1]);
-            promise.complete(array);
-        }, result -> {
-            String[] array = (String[]) result.result();
-            msg.reply(String.format("Sent message from user with id:%s, to user with id:%s", array[0], array[1]));
-        });
+        String message = (String) msg.body();
+        String[] array = message.split(DELIMITER);
+        vertx.eventBus().publish(ChatServiceEventBus.PRIVATE_CHAT_SERVICE_BUS, array);
+        msg.reply(String.format("Sent message from user with id:%s, to user with id:%s", array[0], array[1]));
     }
 }
