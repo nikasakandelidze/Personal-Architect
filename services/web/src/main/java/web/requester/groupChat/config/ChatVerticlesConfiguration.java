@@ -8,7 +8,7 @@ import web.requester.groupChat.ChatServiceHandlerVerticle;
 import web.requester.groupChat.ChatVerticle;
 
 @Configuration
-public class VertxConfiguration {
+public class ChatVerticlesConfiguration {
 
     @Bean
     @Qualifier("chatVerticle")

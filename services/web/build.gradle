@@ -11,7 +11,9 @@ bootJar{
 }
 
 dependencies {
+    implementation("ch.qos.logback:logback-classic:1.2.3")
     implementation 'org.springframework.boot:spring-boot-starter-web:2.4.3'
     compile 'io.vertx:vertx-core:4.0.3'
     compile 'io.vertx:vertx-web:4.0.3'
+    compile 'io.vertx:vertx-auth-jwt:4.0.3'
 }
