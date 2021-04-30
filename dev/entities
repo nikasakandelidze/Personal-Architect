@@ -1,0 +1,18 @@
+Entities:
+
+Course: id, course_name, description, course_material, creator User(one to one)
+
+Group: id, group_name, Course(one to one), List<Member> 
+
+User: id, username, password, role
+
+
+Tables:
+
+users: id, firstname, lastname, password, email, role
+
+courses: id, course_name, description, course_material_link
+
+groups: id, group_name, course_id(FK which's group it is)
+
+courses_users_table:id , user_id(FK), course_id(FK), is_creator	
