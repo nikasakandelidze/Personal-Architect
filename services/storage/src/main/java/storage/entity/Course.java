@@ -29,4 +29,8 @@ public class Course {
 
     @OneToOne(mappedBy = "course")
     private Group group;
+
+    @ManyToOne
+    @JoinColumn(name = "course_type_id")
+    private CourseType courseType;
 }
