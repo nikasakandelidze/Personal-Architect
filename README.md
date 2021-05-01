@@ -19,6 +19,8 @@ Technical details:
 
   Backend <--- Client, happens using REST endpoints.
   
+![erm data](statics/erm.png)         
+
 ## Considerations
 	- use reactive streams for back-end
 	- use redux on front-end for state management
