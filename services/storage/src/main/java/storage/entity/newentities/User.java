@@ -15,7 +15,7 @@ public class User {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String id;
+    private String userId;
 
     @Column(name = "user_name")
     private String userName;
@@ -30,6 +30,5 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @Column(insertable = false)
     private List<UserCourseAssosiation> userCourseAssosiationEntities;
 }

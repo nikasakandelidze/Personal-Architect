@@ -13,10 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class Course {
     @Id
-    @Column(name = "id")
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String id;
+    private String courseId;
 
     @Column(name = "name")
     private String courseName;
@@ -27,14 +26,13 @@ public class Course {
     @Column(name = "materials_link")
     private String materialsLink;
 
-    @OneToMany(mappedBy = "course")
-    @Column(insertable = false)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<UserCourseAssosiation> userCourseAssosiationEntities;
 
-    @OneToOne(mappedBy = "course")
+    @OneToOne(mappedBy = "course", cascade = CascadeType.ALL)
     private Group group;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "course_type_id")
     private CourseType courseType;
 }

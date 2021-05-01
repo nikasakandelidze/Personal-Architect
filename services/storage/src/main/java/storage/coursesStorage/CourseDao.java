@@ -4,12 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import storage.entity.newentities.Course;
-import storage.entity.newentities.UserCourseAssosiation;
-import storage.userCourseAssociationStorage.UserCourseAssociationDao;
+import storage.userStorage.UserDao;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Repository
 @RequiredArgsConstructor
@@ -17,10 +15,14 @@ public class CourseDao {
     @Autowired
     private final CourseRepository courseRepository;
     @Autowired
-    private final UserCourseAssociationDao userCourseAssociationDao;
+    private final UserDao userDao;
 
-    public void addCourseWithUserAsAuthor(Course course, String authorId) {
-        courseRepository.save(course);
+    public Course addCourseWithUserAsAuthor(Course course, String authorId) {
+        return courseRepository.save(course);
+    }
+
+    public Course addCourse(Course course) {
+        return courseRepository.save(course);
     }
 
     public List<Course> getAllCourses() {
@@ -31,10 +33,8 @@ public class CourseDao {
         return courseRepository.findById(id);
     }
 
-    public List<Course> getAllCoursesForUserWithIdOf(String id) {
-        return userCourseAssociationDao.getAssociationsWithUserIdOf(id)
-                .stream()
-                .map(UserCourseAssosiation::getCourse)
-                .collect(Collectors.toList());
+    public void flush(){
+        courseRepository.flush();
     }
+
 }

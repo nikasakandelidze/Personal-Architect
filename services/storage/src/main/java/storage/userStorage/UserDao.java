@@ -12,12 +12,8 @@ public class UserDao {
     @Autowired
     private UserRepository userRepository;
 
-    public void addNewUser(User user) {
-        try {
-            User save = userRepository.save(user);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public User addNewUser(User user) {
+        return userRepository.save(user);
     }
 
     public List<User> getAllUsers() {
@@ -26,5 +22,9 @@ public class UserDao {
 
     public Optional<User> getUserWithIdOf(String id) {
         return userRepository.findById(id);
+    }
+
+    public void flush() {
+        userRepository.flush();
     }
 }

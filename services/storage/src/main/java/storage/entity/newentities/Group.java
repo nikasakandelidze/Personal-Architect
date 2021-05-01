@@ -12,14 +12,14 @@ import javax.persistence.*;
 @Data
 public class Group {
     @Id
-    @GeneratedValue(generator="system-uuid")
-    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
     private String id;
 
     @Column(name = "group_name")
     private String groupName;
 
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "courseId")
     private Course course;
 }
