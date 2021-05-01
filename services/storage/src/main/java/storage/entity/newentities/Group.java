@@ -1,7 +1,8 @@
-package storage.entity;
+package storage.entity.newentities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -11,12 +12,14 @@ import javax.persistence.*;
 @Data
 public class Group {
     @Id
-    private long id;
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
+    private String id;
 
     @Column(name = "group_name")
     private String groupName;
 
-    @OneToOne
+    @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "course_id")
     private Course course;
 }

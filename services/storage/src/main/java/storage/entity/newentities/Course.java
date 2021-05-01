@@ -1,7 +1,8 @@
-package storage.entity;
+package storage.entity.newentities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +14,9 @@ import java.util.List;
 public class Course {
     @Id
     @Column(name = "id")
-    private long id;
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    private String id;
 
     @Column(name = "name")
     private String courseName;
@@ -25,7 +28,8 @@ public class Course {
     private String materialsLink;
 
     @OneToMany(mappedBy = "course")
-    private List<UserCourseAssosiation> userCourseAssosiations;
+    @Column(insertable = false)
+    private List<UserCourseAssosiation> userCourseAssosiationEntities;
 
     @OneToOne(mappedBy = "course")
     private Group group;

@@ -1,7 +1,8 @@
-package storage.entity;
+package storage.entity.newentities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,7 +13,9 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
     @Id
-    private long id;
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid")
+    private String id;
 
     @Column(name = "user_name")
     private String userName;
@@ -26,6 +29,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "user")
-    private List<UserCourseAssosiation> userCourseAssosiations;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(insertable = false)
+    private List<UserCourseAssosiation> userCourseAssosiationEntities;
 }
